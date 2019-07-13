@@ -72,29 +72,31 @@
 
     ////////////////////////////////
 
-    const getIDs = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve([523, 843, 432, 974]); // rejectに変えるとエラーとして返ってくる
-      }, 1000);
-    });
+    // const getIDs = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve([523, 843, 432, 974]); // rejectに変えるとエラーとして返ってくる
+    //   }, 1000);
+    // });
 
-    const getRecipe = recID => {
-      return new Promise((resolve, reject) => {
-        setTimeout(ID => {
-          const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
-          resolve(`${ID}: ${recipe.title}`);
-        }, 1500, recID);
-      });
-    };
+    // const getRecipe = recID => {
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(ID => {
+    //       const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
+    //       resolve(`${ID}: ${recipe.title}`);
+    //     }, 1500, recID);
+    //   });
+    // };
 
-    const getRelated = publisher => {
-      return new Promise((resolve, reject) => {
-        setTimeout(pub => {
-          const recipe = {title: 'Italian Pizza', publisher: 'Jonas'};
-          console.log(`${pub}: ${recipe.title}`);
-        }, 1500, publisher);
-      })
-    };
+    // const getRelated = publisher => {
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(pub => {
+    //       const recipe = {title: 'Italian Pizza', publisher: 'Jonas'};
+    //       console.log(`${pub}: ${recipe.title}`);
+    //     }, 1500, publisher);
+    //   })
+    // };
+
+    ////////////////////////////////
 
     // Promise
     // getIDs
@@ -113,12 +115,23 @@
     //   console.log('Error!');
     // });
     
+    ////////////////////////////////
+
     // Async Await
-    async function getRecipesAW() {
-      const IDs = await getIDs;
-      console.log(IDs);
-    }
-    getRecipesAW();
+    // async function getRecipesAW() {
+    //   const IDs = await getIDs;
+    //   console.log(IDs);
+    // }
+    // getRecipesAW();
+
+    ////////////////////////////////
+
+    // Fetch
+    fetch('http://www.omdbapi.com/?i=tt0076759&r=json&apikey=821b297f')
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => console.log(error));
   </script>
 </body>
 
