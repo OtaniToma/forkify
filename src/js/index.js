@@ -10,7 +10,7 @@ import { elements } from './views/base';
 */
 const state = {};
 
-const controlSearch = async () => {
+const controlSearch = async() => {
   // 1) Get query from view
   const query = searchView.getInput();
 
@@ -19,6 +19,8 @@ const controlSearch = async () => {
     state.search = new Search(query);
 
     // 3) Prepare UI for results
+    // searchView.clearInput();
+    searchView.clearResults();
 
     // 4) Search for recipes
     await state.search.getResults();
